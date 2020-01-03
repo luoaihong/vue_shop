@@ -54,7 +54,7 @@
           <!-- :options指定数据源 :props指定配置对象 -->
           <div class="block">
             <el-cascader v-model="selectedKeys" :options="parentCateList" :props="cascaderProps"
-              @change="parentCateChanged" clearable>
+              @change="parentCateChanged" clearable class="myCascader" popper-class="myCascaderPopper">
             </el-cascader>
           </div>
         </el-form-item>
@@ -234,14 +234,15 @@ export default {
 .treeTable {
   margin-top: 15px;
 }
-.el-cascader {
+.myCascader {
   width: 100%;
 }
 // 自定义级联浮层的样式（需要去掉scoped才生效）
-.el-popper.el-cascader__dropdown {
-  top: 280px !important;
-  .el-cascader-panel {
-    height: 300px !important;
+.myCascaderPopper {
+  top: 275px !important;
+  height: 280px;
+  .el-cascader-panel{
+    height: 100%;
   }
 }
 </style>
